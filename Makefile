@@ -1,15 +1,15 @@
 # Define variables
 VERSION := $(v)
-AHK2EXE := $(USERPROFILE)\Scoop\apps\autohotkey\current\Compiler\Ahk2Exe.exe
+AHK2EXE := C:\Program Files\AutoHotkey\Compiler\Ahk2Exe.exe
 PACKER := $(USERPROFILE)\Scoop\apps\autohotkey\current\Compiler\Upx.exe
-WIX_EXT := $(USERPROFILE)\.wix\extensions\WixToolset.UI.wixext\5.0.0\wixext5
+WIX_EXT := $(USERPROFILE)\.wix\extensions\WixToolset.UI.wixext\6.0.0\wixext6
 APP_AHK := komorebi-tray.ahk
 APP_EXE := komorebi-tray.exe
 BUILD_DIR := build
 BUILD_ZIP := ".\$(BUILD_DIR)\KomorebiTray-$(VERSION).zip"
 BUILD_MSI := ".\$(BUILD_DIR)\KomorebiTray-$(VERSION).msi"
 APP_FILES := ".\$(APP_EXE)" ".\LICENSE" ".\images\ico\*" ".\profiles\*"
-GIT_REPO := git@github.com:starise/komorebi-tray.git
+# GIT_REPO := git@github.com:starise/komorebi-tray.git
 
 # Print a helper
 help:
@@ -37,5 +37,5 @@ msi: compile
 build: clean compile zip msi
 
 # Create a GitHub release and publish .zip and .msi files
-release:
-	gh release create $(VERSION) $(BUILD_ZIP) $(BUILD_MSI) --repo $(GIT_REPO) --title "Release v$(VERSION)" --notes "Release version $(VERSION)"
+# release:
+# 	gh release create $(VERSION) $(BUILD_ZIP) $(BUILD_MSI) --repo $(GIT_REPO) --title "Release v$(VERSION)" --notes "Release version $(VERSION)"

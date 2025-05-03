@@ -3,14 +3,14 @@
 #NoTrayIcon
 
 Komorebic(cmd) {
-  RunWait(format("komorebic.exe {}", cmd), , "Hide")
+    RunWait(format("komorebic.exe {}", cmd), , "Hide")
 }
 
 MouseOnTaskbar() {
-  MouseGetPos(, , &hoverID)
-  taskbarPrimaryID := WinExist("ahk_class Shell_TrayWnd")
-  taskbarSecondaryID := WinExist("ahk_class Shell_SecondaryTrayWnd")
-  return (hoverID == taskbarPrimaryID or hoverID == taskbarSecondaryID)
+    MouseGetPos(, , &hoverID)
+    taskbarPrimaryID := WinExist("ahk_class Shell_TrayWnd")
+    taskbarSecondaryID := WinExist("ahk_class Shell_SecondaryTrayWnd")
+    return (hoverID == taskbarPrimaryID or hoverID == taskbarSecondaryID)
 }
 
 ; Cycle workspaces with mouse wheel on taskbar

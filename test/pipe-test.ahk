@@ -45,13 +45,13 @@ count := 0
 pipeData := ""
 lastData := ""
 while (count < 5) {
-  pipeData := testPipe.getData()
-  if (pipeData and pipeData != lastData) {
-    OutputDebug(pipeData)
-    lastData := pipeData
-    count++
-  }
-  Sleep(100)
+    pipeData := testPipe.getData()
+    if (pipeData and pipeData != lastData) {
+        OutputDebug(pipeData)
+        lastData := pipeData
+        count++
+    }
+    Sleep(100)
 }
 
 ; Disconnect and close the pipe handle

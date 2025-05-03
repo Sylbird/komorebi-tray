@@ -3,7 +3,7 @@
 #NoTrayIcon
 
 Komorebic(cmd) {
-  RunWait(format("komorebic.exe {}", cmd), , "Hide")
+    RunWait(format("komorebic.exe {}", cmd), , "Hide")
 }
 
 !q:: Komorebic("close")

@@ -61,11 +61,6 @@
         <Exclude Files="..\images\png\**" />
         <Exclude Files="..\images\preview.png" />
       </Files>
-      <Files
-        Directory="ApplicationRootDir"
-        Subdirectory="profiles"
-        Include="..\profiles\**"
-      />
       <ComponentRef Id="komorebitray.exe" />
       <ComponentRef Id="ApplicationShortcut" />
     </Feature>

@@ -44,9 +44,9 @@ class Komorebi {
         RunWait(Format("komorebic.exe {}", cmd), , "Hide")
     }
 
-    ; Start komorebi.exe with autohotkey config.
+    ; Start komorebi.exe with whkd config.
     static start() {
-        this.command("start --ahk")
+        this.command("start --whkd")
     }
 
     ; Stop komorebi.exe process.

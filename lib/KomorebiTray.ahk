@@ -1,14 +1,11 @@
 #Include Komorebi.ahk
 #Include KomorebiEvents.ahk
-#Include KomorebiProfile.ahk
 #Include Popup.ahk
 
 class KomorebiTray {
     ; Main tray menu object.
     static mainMenu := A_TrayMenu
-    ; Profile menu instance.
-    static profileMenu := Menu()
-    ; Profile menu instance.
+    ; Komorebi menu instance.
     static komorebiMenu := Menu()
     ; Get the current pause status
     static menuPaused := false
@@ -66,23 +63,9 @@ class KomorebiTray {
         ExitApp()
     }
 
-    ; Add the checkmark on the .ahk profile item in the Profile menu.
-    static checkProfile(profile) => this.profileMenu.Check(profile)
-
-    ; Remove the checkmark the .ahk profile item in the Profile menu.
-    static uncheckProfile(profile) => this.profileMenu.Uncheck(profile)
-
-    ; Generate the tray menu with a list of available profiles.
-    static create(profiles) {
+    ; Generate the tray menu.
+    static create() {
         this.mainMenu.Delete()
-        for (profile in profiles) {
-            this.profileMenu.Add(
-                profile,
-                ObjBindMethod(this, "enableProfile", profile)
-            )
-        }
-        this.checkProfile(KomorebiProfile.active)
-        this.mainMenu.Add("Profiles", this.profileMenu)
         this.mainMenu.Add("Komorebi", this.komorebiMenu)
         this.komorebiMenu.Add("Restart", ObjBindMethod(this, "restart"))
         this.komorebiMenu.Add("Stop", ObjBindMethod(this, "stop"))
@@ -119,13 +102,4 @@ class KomorebiTray {
         }
     }
 
-    ; Activate a new given profile and disable the previous active one.
-    static enableProfile(profile, *) {
-        if (KomorebiProfile.isDifferent(profile)) {
-            this.checkProfile(profile)
-            this.uncheckProfile(KomorebiProfile.active)
-            KomorebiProfile.enable(profile)
-            Popup.new(profile " activated", 2000)
-        }
-    }
 }

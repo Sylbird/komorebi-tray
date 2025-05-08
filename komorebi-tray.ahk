@@ -17,9 +17,7 @@ Persistent
 
 #Include %A_ScriptDir%\lib\Komorebi.ahk
 #Include %A_ScriptDir%\lib\KomorebiEvents.ahk
-#Include %A_ScriptDir%\lib\KomorebiProfile.ahk
 #Include %A_ScriptDir%\lib\KomorebiTray.ahk
-#Include %A_ScriptDir%\lib\Settings.ahk
 
 Startup() {
     if ( not Komorebi.CONFIG_HOME) {
@@ -56,31 +54,8 @@ Startup() {
         }
     }
 
-    ; Add default profiles if they don't exist
-    if ( not DirExist(KomorebiProfile.folder)) {
-        MsgBox(
-            Format("══ {:T} ══`n`n", "Profile folder not detected")
-            "Creating new defaults to: " KomorebiProfile.folder
-        )
-        DirCopy(A_ScriptDir "\profiles", KomorebiProfile.folder)
-    }
-
-    ; Load all profiles from the folder
-    profiles := KomorebiProfile.getAll()
-
-    if (FileExist(Settings.configFile)) {
-        KomorebiProfile.active := Settings.load("active", "profiles")
-    } else {
-        MsgBox(
-            Format("══ {:T} ══`n`n", "Configuration file not detected")
-            "Creating new defaults to: " Settings.configFile
-        )
-        KomorebiProfile.active := profiles[1]
-        Settings.save(profiles[1], "active", "profiles")
-    }
-
-    KomorebiTray.create(profiles)
-    KomorebiProfile.enable(KomorebiProfile.active)
+    ; Create the tray
+    KomorebiTray.create()
 
     if ( not Komorebi.isRunning) {
         try {

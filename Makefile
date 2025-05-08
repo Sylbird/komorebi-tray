@@ -26,15 +26,15 @@ compile:
 	$(AHK2EXE) /in $(APP_AHK) /out $(APP_EXE)
 
 # Compile and create a ZIP portable
-zip: compile
-	7z.exe a "$(BUILD_ZIP)" $(APP_FILES)
+# zip: compile
+# 	7z.exe a "$(BUILD_ZIP)" $(APP_FILES)
 
 # Compile and create a MSI installer
 msi: compile
 	wix build .\wix\script.wxs -ext $(WIX_EXT)\WixToolset.UI.wixext.dll -arch x64 -out $(BUILD_MSI)
 
 # Clean and build new packages
-build: clean compile zip msi
+build: clean compile msi
 
 # Create a GitHub release and publish .zip and .msi files
 # release:

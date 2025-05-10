@@ -1,5 +1,5 @@
 # Define variables
-VERSION := $(v)
+VERSION := 1.0.0
 AHK2EXE := C:\Program Files\AutoHotkey\Compiler\Ahk2Exe.exe
 PACKER := $(USERPROFILE)\Scoop\apps\autohotkey\current\Compiler\Upx.exe
 WIX_EXT := $(USERPROFILE)\.wix\extensions\WixToolset.UI.wixext\6.0.0\wixext6

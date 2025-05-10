@@ -4,10 +4,10 @@
 >
   <Package
     UpgradeCode="008acf35-b074-43f6-8239-275c7e6980fa"
-    Version="0.1.1"
+    Version="1.0.0"
     Language="1033"
     Name="Komorebi Tray"
-    Manufacturer="Andrea Brandi"
+    Manufacturer="Andrea Brandi - Sylbird"
     InstallerVersion="400"
   >
     <ui:WixUI Id="WixUI_InstallDir" InstallDirectory="ApplicationRootDir" />

@@ -14,5 +14,5 @@ Sleep(2500)
 Popup.new("Message after timeout", 2000)
 
 Sleep(2000)
-
-Popup.destroy()
+; exit
+ExitApp()

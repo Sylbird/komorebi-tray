@@ -88,7 +88,7 @@ class KomorebiTray {
                 TraySetIcon("images/ico/app.ico")
             }
             A_IconTip := Komorebi.workspaceName " @ " Komorebi.displayName
-            Popup.new(Komorebi.workspaceName, 2000)
+            Popup.new(Komorebi.workspaceName)
         }
         if (Komorebi.isPaused and not this.menuPaused) {
             this.mainMenu.Rename(this.pauseName, "Resume")

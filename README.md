@@ -2,7 +2,6 @@
 
 A tray app to manage komorebi tiling window manager for Windows.
 
-- Switch between **multiple AutoHotkey profiles**.
 - Show the current **workspace number** on tray icon.
 - Show **workspace name** popup on workspace change.
 - Start/Stop/Pause komorebi using the tray menu.
@@ -16,12 +15,7 @@ If the app is already running but the connection with komorebi is lost, the app 
 
 ## Quick start
 
-Install Komorebi Tray using the latest [MSI Windows Installer](https://github.com/starise/komorebi-tray/releases/latest) or **Scoop**.
-
-```powershell
-scoop bucket add confetti https://github.com/starise/Scoop-Confetti
-scoop install komorebi-tray
-```
+Install Komorebi Tray using the latest [MSI Windows Installer](https://github.com/Sylbird/komorebi-tray/releases/latest).
 
 No changes to your default komorebi configuration are needed. The only requirement is to set the `KOMOREBI_CONFIG_HOME` environment variable for your user, which is used to read the current komorebi configuration and for multiple AutoHotkey profile management.
 
@@ -34,10 +28,3 @@ No changes to your default komorebi configuration are needed. The only requireme
 ```
 
 For more information, see the official [Komorebi docs](https://lgug2z.github.io/komorebi/common-workflows/komorebi-config-home.html).
-
-## AutoHotkey profiles
-
-Add your custom `*.ahk` scripts to `$Env:KOMOREBI_CONFIG_HOME\profiles\`.
-
-- Load new profiles: `Right click -> Reload`.
-- Enable a new profile: `Right click -> Profiles -> profile.ahk`.

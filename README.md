@@ -11,13 +11,27 @@ Komorebi can be started, stopped and paused externally and the app will adjust a
 
 If the app is already running but the connection with komorebi is lost, the app will wait for komorebi to start. If the app is started but komorebi has not been launched yet, the app will attempt to launch komorebi. This is useful if you want to use this app as a _launcher_ for Komorebi at Windows startup.
 
-![Komorebi Tray Preview](images/preview.png)
+## Preview
+
+https://github.com/user-attachments/assets/86e768b6-66a2-48ef-90d0-929fb263ed3f
 
 ## Quick start
 
 Install Komorebi Tray using the latest [MSI Windows Installer](https://github.com/Sylbird/komorebi-tray/releases/latest).
 
-No changes to your default komorebi configuration are needed. The only requirement is to set the `KOMOREBI_CONFIG_HOME` environment variable for your user, which is used to read the current komorebi configuration and for multiple AutoHotkey profile management.
+Might need to add "komorebi-tray.exe" to komorebi ignore rule.
+
+```json
+"ignore_rules": [
+    {
+      "kind": "Exe",
+      "id": "komorebi-tray.exe",
+      "matching_strategy": "Equals"
+    }
+  ]
+```
+
+The main requirement is to set the `KOMOREBI_CONFIG_HOME` environment variable for your user, which is used to read the current komorebi configuration and for multiple AutoHotkey profile management.
 
 ```powershell
 # Set KOMOREBI_CONFIG_HOME for the user

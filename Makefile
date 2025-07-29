@@ -1,5 +1,5 @@
 # Define variables
-VERSION := 1.0.0
+VERSION := 1.0.1
 AHK2EXE := C:\Program Files\AutoHotkey\Compiler\Ahk2Exe.exe
 PACKER := $(USERPROFILE)\Scoop\apps\autohotkey\current\Compiler\Upx.exe
 WIX_EXT := $(USERPROFILE)\.wix\extensions\WixToolset.UI.wixext\6.0.0\wixext6
@@ -13,7 +13,7 @@ APP_FILES := ".\$(APP_EXE)" ".\LICENSE" ".\images\ico\*" ".\profiles\*"
 
 # Print a helper
 help:
-	echo "options: clean, build, release v=1.0.0"
+	echo "options: clean, build, release v=$(VERSION)"
 
 # Remove the build folder
 clean:
@@ -31,7 +31,7 @@ compile:
 
 # Compile and create a MSI installer
 msi: compile
-	wix build .\wix\script.wxs -ext $(WIX_EXT)\WixToolset.UI.wixext.dll -arch x64 -out $(BUILD_MSI)
+	wix build .\wix\script.wxs -ext $(WIX_EXT)\WixToolset.UI.wixext.dll -arch x64 -d ProductVersion=$(VERSION) -out $(BUILD_MSI)
 
 # Clean and build new packages
 build: clean compile msi

@@ -4,7 +4,7 @@
 >
   <Package
     UpgradeCode="008acf35-b074-43f6-8239-275c7e6980fa"
-    Version="1.0.0"
+    Version="$(var.ProductVersion)"
     Language="1033"
     Name="Komorebi Tray"
     Manufacturer="Andrea Brandi - Sylbird"

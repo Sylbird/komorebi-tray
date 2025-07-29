@@ -6,8 +6,6 @@ class Komorebi {
 
     ; Userprofile komorebi.json file path.
     static userProfileJson => this.USERPROFILE "\komorebi.json"
-    ; Userprofile komorebi.ahk file path.
-    static userProfileAhk => this.USERPROFILE "\komorebi.ahk"
     ; Userprofile applications.yaml file path.
     static userProfileAppYaml => this.USERPROFILE "\applications.yaml"
     ; Userprofile applications.json file path.

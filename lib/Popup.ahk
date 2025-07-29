@@ -62,7 +62,7 @@ class Popup {
             this.Gui.SetWindowAttribute(16, true)  ; required for DWMSBT_TRANSIENTWINDOW
             this.Gui.SetWindowAttribute(38, 3)
         }
-        this.Gui.Opt("+Disabled -Caption +ToolWindow +LastFound +AlwaysOnTop -Border -SysMenu ")
+        this.Gui.Opt("+Disabled -Caption +ToolWindow +LastFound +AlwaysOnTop -Border -SysMenu +E0x20")
         this.Gui.SetDarkTitle()
         this.Gui.BackColor := bgColor
         this.Gui.SetFont(Format("s{1} c{2}", fontSize, fontColor), this.DEFAULT_FONT_NAME)
@@ -71,6 +71,8 @@ class Popup {
         this.ID := WinExist()
         ; Makes the window transparent
         this.Gui.SetBorderless(0)
+        ; Needed to make the window click-through
+        WinSetTransparent(255, this.Gui)
         ; Set a timer to hide the GUI after the specified duration
         this.timerFunc := ObjBindMethod(this, "FadeOut")
         SetTimer(this.timerFunc, -timer)
